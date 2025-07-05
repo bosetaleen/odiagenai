@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>HMS - Hospital Management System</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+  <header>
+    <h1>🏥 Hospital Management System</h1>
+  </header>
+
+  <!-- Top-right buttons -->
+  <div class="top-bar">
+    <a href="/view_patients" class="btn">View All Patients</a>
+    <a href="/view_discharged" class="btn">View Discharged Patients</a>
+  </div>
+
+  <div class="container">
+
+    <!-- Chatbot Left -->
+    <div class="left-panel">
+      <h2>🤖 AI Chatbot Assistant</h2>
+      <iframe src="http://localhost:8501" style="width:100%; height:500px; border:none;"></iframe>
+    </div>
+
+    <!-- Forms Right -->
+    <div class="right-panel">
+      <h2>🗂️ Patient Management</h2>
+
+      <!-- Add -->
+      <section>
+        <h3>Add Patient</h3>
+        <form method="POST" action="/add_patient">
+          <input type="text" name="Name" placeholder="Name" required>
+          <input type="number" name="Age" placeholder="Age" required>
+          <input type="text" name="Gender" placeholder="Gender" required>
+          <input type="text" name="Department" placeholder="Department" required>
+          <input type="date" name="AdmissionDate" required>
+          <input type="text" name="Diagnosis" placeholder="Diagnosis" required>
+          <input type="submit" value="Add Patient">
+        </form>
+      </section>
+
+      <!-- Delete -->
+      <section>
+        <h3>Delete Patient</h3>
+        <form method="POST" action="/delete_patient">
+          <input type="number" name="PatientID" placeholder="Patient ID" required>
+          <input type="submit" value="Delete Patient">
+        </form>
+      </section>
+
+      <!-- Update -->
+      <section>
+        <h3>Update Patient</h3>
+        <form method="POST" action="/update_patient">
+          <input type="number" name="PatientID" placeholder="Patient ID" required>
+          <input type="text" name="Name" placeholder="New Name">
+          <input type="number" name="Age" placeholder="New Age">
+          <input type="text" name="Gender" placeholder="New Gender">
+          <input type="text" name="Department" placeholder="New Department">
+          <input type="text" name="Diagnosis" placeholder="New Diagnosis">
+          <input type="submit" value="Update Patient">
+        </form>
+      </section>
+    </div>
+
+  </div>
+
+</body>
+</html>
+
